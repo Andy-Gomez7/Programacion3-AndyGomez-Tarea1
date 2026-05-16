@@ -19,6 +19,10 @@ public class Tarea1 {
 
                 case 11:
                     break;
+                
+                case 2:
+                    ParImpar();
+                    break;
 
                 default:
                     System.out.print("Opcion no valida");
@@ -107,5 +111,17 @@ public class Tarea1 {
         }while(op != '2');
     }
 
-    
+    public static void ParImpar(){
+        Scanner scan = new Scanner(System.in);
+        
+        System.out.print("Digite un numero: ");
+        int numero = scan.nextInt();
+
+        if(numero % 2 == 0){
+            System.out.println("Su numero es par\n");
+        }
+        else{
+            System.out.println("Su numero es impar\n");
+        }
+    }
 } 
