@@ -14,19 +14,23 @@ public class Tarea1 {
 
             switch (op){
                 case 1:
-                    Calculadora();
+                    Calculadora(scan);
                     break;
                 
                 case 2:
-                    ParImpar();
+                    ParImpar(scan);
                     break;
 
                 case 3:
-                    TablaMultiplicar();
+                    TablaMultiplicar(scan);
                     break;
                 
                 case 4:
-                    ContadorVocales();
+                    ContadorVocales(scan);
+                    break;
+
+                case 5:
+                    PromedioNotas(scan);
                     break;
 
                 case 11:
@@ -40,11 +44,11 @@ public class Tarea1 {
         
     }
 
-    public static void Calculadora(){
+    public static void Calculadora(Scanner scan){
         String operacion = " ";
         String[] valores;
         Double resultado = 0.0;
-        Scanner scan = new Scanner(System.in);
+        
         char op;
 
         do{
@@ -119,8 +123,7 @@ public class Tarea1 {
         }while(op != '2');
     }
 
-    public static void ParImpar(){
-        Scanner scan = new Scanner(System.in);
+    public static void ParImpar(Scanner scan){
         
         System.out.print("Digite un numero: ");
         int numero = scan.nextInt();
@@ -133,8 +136,7 @@ public class Tarea1 {
         }
     }
 
-    public static void TablaMultiplicar(){
-        Scanner scan = new Scanner(System.in);
+    public static void TablaMultiplicar(Scanner scan){
         int tamano;
         int numero;
         int contador = 0;
@@ -144,7 +146,7 @@ public class Tarea1 {
         do
         {
 
-            System.out.println("Digite:\n1-Crear otra tabla\n2-Salir");
+            System.out.println("\nDigite:\n1-Crear otra tabla\n2-Salir");
             op = scan.nextInt();
 
             if(op == 2){
@@ -157,22 +159,22 @@ public class Tarea1 {
             tamano = scan.nextInt();
 
             System.out.println("\n"+"Tabla del "+numero+"\n");
+            contador = 0;
 
             do
             {
-                System.out.print(numero +"x"+contador+" = ");
-                System.out.println(contador * numero);
+                System.out.print(numero +"x"+(contador+1)+" = ");
+                System.out.println((contador+1) * numero);
             
                 contador++;
 
-            }while(contador <= tamano);
+            }while(contador < tamano);
 
         }while(op != 2);
-        System.out.println();
+        System.out.print("\n");
     }
 
-    public static void ContadorVocales(){
-        Scanner scan = new Scanner(System.in);
+    public static void ContadorVocales(Scanner scan){
         
         System.out.print("Digite una palabra: ");
         String palabra = scan.next();
@@ -187,5 +189,54 @@ public class Tarea1 {
         }   
 
         System.out.println("La cantidad de vocales de esta palabra es: "+contador+"\n");
+    }
+
+    public static void PromedioNotas(Scanner scan){
+        String Nota;
+        int Creditos = 0, CantdMaterias, contador = 0;
+        Double SumaNota = 0.0;   
+
+        System.out.print("Digite la cantidad de materias: ");
+        CantdMaterias = scan.nextInt();
+        System.out.print("\n");
+
+        do
+        {
+            System.out.print("Digite la nota: ");
+            Nota = scan.next();
+            System.out.print("Digite los creditos de la nota: ");
+            Creditos += scan.nextInt();
+
+            switch(Nota)
+            {
+                case "A":
+                    SumaNota += 4.0;
+                    break;
+                case "B+":
+                    SumaNota += 3.5;
+                    break;
+                case "B":
+                    SumaNota += 3.0;
+                    break;
+                case "C+":
+                    SumaNota += 2.5;
+                    break;
+                case "C":
+                    SumaNota += 2.0;
+                    break;
+                case "D+":
+                    SumaNota += 1.5;
+                    break;
+                case "D":
+                    SumaNota += 1.0;
+                    break;
+                case "F":
+                    SumaNota += 0.0;
+                    break;
+            }
+            contador++;
+        }while(contador < CantdMaterias);
+
+        System.out.println("El promedio es: "+ (SumaNota/Creditos)+"\n");
     }
 } 
