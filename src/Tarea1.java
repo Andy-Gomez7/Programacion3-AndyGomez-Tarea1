@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Tarea1 {
-    public void main(String[] args){
-
+    public static void main(String[] args){
+        Banco banco = new Banco();
         Scanner scan = new Scanner(System.in);
         int op;
 
@@ -32,6 +32,9 @@ public class Tarea1 {
                 case 5:
                     PromedioNotas(scan);
                     break;
+
+                case 7:
+                    banco.Menu();
 
                 case 11:
                     break;
