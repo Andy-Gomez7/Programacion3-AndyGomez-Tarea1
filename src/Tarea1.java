@@ -3,6 +3,19 @@ import java.util.Scanner;
 public class Tarea1 {
     public static void main(String[] args){        
         Scanner scan = new Scanner(System.in);
+
+        Estudiante estd = new Estudiante("Pedro Lopez", "1000-7879", "Ciudad de Mexico", "Calle 5/Casa 8", "5105-6314");
+
+        Automovil auto = new Automovil("Toyota", 4, "Corolla", 4, "400kg - 450kg");
+
+        Motocicleta moto = new Motocicleta("Honda", 4, "CBR", "Manillar alto", "Paddock");
+
+        Camion cam = new Camion("Volvo", 2, "FH", 6, "44t - 70t", "chasis de largueros rectos en perfil C de acero laminado");
+
+        Banco banco = new Banco();
+
+        Inventario inventario = new Inventario();
+
         int op;
 
         do
@@ -34,22 +47,27 @@ public class Tarea1 {
                     break;
 
                 case 6:
-                    Estudiante estd = new Estudiante("Pedro Lopez", "1000-7879", "Ciudad de Mexico", "Calle 5/Casa 8", "5105-6314");
                     estd.print();
                     break;
 
                 case 7:
-                    Banco banco = new Banco();
+                    
                     banco.Menu();
+                    break;
 
                 case 8:
-                    Automovil auto = new Automovil("Toyota", 4, "Corolla", 4, "400kg - 450kg");
-                    Motocicleta moto = new Motocicleta("Honda", 4, "CBR", "Manillar alto", "Paddock");
-                    Camion cam = new Camion("Volvo", 2, "FH", 6, "44t - 70t", "chasis de largueros rectos en perfil C de acero laminado");
-
                     auto.print();
                     moto.print();
                     cam.print();
+                    break;
+
+                case 9:
+                    Matriz(scan);
+                    break;
+
+                case 10:
+                    inventario.Menu();
+                    break;
 
                 case 11:
                     break;
@@ -256,5 +274,43 @@ public class Tarea1 {
         }while(contador < CantdMaterias);
 
         System.out.println("El promedio es: "+ (SumaNota/Creditos)+"\n");
+    }
+
+    public static void Matriz(Scanner scan){
+        int op;
+        int[][] matriz = new int[3][3];
+
+        do 
+        {
+            System.out.println("\nDigite:\n1-Llenar matriz\n2-Imprimir matriz\n3-salir\n");
+            op = scan.nextInt();
+            System.out.println("\n");
+
+            switch (op) {
+                case 1:
+                    for(int i = 0; i < 3; i++){
+                        for(int j = 0; j < 3; j++){
+                            matriz[i][j] = scan.nextInt();
+                        }
+                    }
+                    break;
+            
+                    case 2:
+                        for(int i = 0; i < 3; i++){
+                            for(int j = 0; j < 3; j++){
+                                System.out.print(matriz[i][j]+"  ");
+                            }
+                            System.out.println("\n");
+                        }
+                        break;
+
+                    case 3:
+                        break;
+
+                default:
+                    break;
+            }
+        } while (op != 3);
+        
     }
 } 

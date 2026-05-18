@@ -66,6 +66,11 @@ public class Banco {
 
     private void ListarCuentas(){
         for(CuentaBancaria cuenta : cuentas){
+
+            System.out.print("\n");
+            System.out.println("------------------------------------------------------------(\"------------------------------------------------------------");
+            System.out.print("\n");
+
             System.out.println("------------------------------------------------------------");
             System.out.println("Nombre: " +cuenta.GetNombre());
             System.out.println("------------------------------------------------------------");
