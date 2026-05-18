@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class Tarea1 {
-    public static void main(String[] args){
-        Banco banco = new Banco();
+    public static void main(String[] args){        
         Scanner scan = new Scanner(System.in);
         int op;
 
@@ -11,6 +10,7 @@ public class Tarea1 {
             System.out.println("Digite una opcion:\n1-Calculadora\n2-Numero par o impar\n3-Tabla de multiplicar\n4-Contador de vocales\n5-Promedio de notas\n6-Clase Estudiante\n7-Cuenta bancaria\n8-Herencia de vehículos\n9-Matriz 3x3\n10-Sistema básico de inventario\n11-Salir de la aplicación\n");
 
             op = scan.nextInt();
+            System.out.print("\n");
 
             switch (op){
                 case 1:
@@ -33,8 +33,23 @@ public class Tarea1 {
                     PromedioNotas(scan);
                     break;
 
+                case 6:
+                    Estudiante estd = new Estudiante("Pedro Lopez", "1000-7879", "Ciudad de Mexico", "Calle 5/Casa 8", "5105-6314");
+                    estd.print();
+                    break;
+
                 case 7:
+                    Banco banco = new Banco();
                     banco.Menu();
+
+                case 8:
+                    Automovil auto = new Automovil("Toyota", 4, "Corolla", 4, "400kg - 450kg");
+                    Motocicleta moto = new Motocicleta("Honda", 4, "CBR", "Manillar alto", "Paddock");
+                    Camion cam = new Camion("Volvo", 2, "FH", 6, "44t - 70t", "chasis de largueros rectos en perfil C de acero laminado");
+
+                    auto.print();
+                    moto.print();
+                    cam.print();
 
                 case 11:
                     break;

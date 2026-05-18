@@ -85,6 +85,9 @@ public class Banco {
             System.out.println("Numero de cuenta: " +cuenta.GetNumerodeCuenta());
             System.out.println("------------------------------------------------------------");
             System.out.print("\n");
+            System.out.print("----------------------------------------------------------------------------------------------------------------------");
+            System.out.print("\n");
+
         }
     }
     
