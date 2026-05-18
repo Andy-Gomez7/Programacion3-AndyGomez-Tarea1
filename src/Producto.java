@@ -7,7 +7,7 @@ public class Producto {
     }
 
     public Producto(String Nombre, String Codigo, int Stock){
-        SetNombre(Nombre);;
+        SetNombre(Nombre);
         SetCodigo(Codigo);
         SetStock(Stock);
     }

@@ -156,6 +156,8 @@ public class Tarea1 {
                     System.out.print("Opcion no valida");
                     break;
             }
+
+            System.out.println("\n"+resultado+"\n");
         }while(op != '2');
     }
 

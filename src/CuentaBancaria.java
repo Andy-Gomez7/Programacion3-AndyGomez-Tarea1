@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class CuentaBancaria {
 
     private String nombre;
@@ -9,17 +8,21 @@ public class CuentaBancaria {
     private Banco banco;
     Scanner scan;
 
-    public CuentaBancaria(Banco Banco){
+    public CuentaBancaria(Banco Banco){        
         scan = new Scanner(System.in);
         banco = Banco;
+        nombre = "";
+        tipoCuenta = "";
+        saldo = 0.0;
+        SetNumerodeCuenta(numerodeCuenta);
     }
 
     public CuentaBancaria(String Nombre, String TipoCuenta, Double Saldo, int NumerodeCuenta, Banco Banco){
+        banco = Banco;
         SetNombre(Nombre);
         SetTipoCuenta(TipoCuenta);
         SetSaldo(Saldo);
         scan = new Scanner(System.in);
-        banco = Banco;
         SetNumerodeCuenta(NumerodeCuenta);
     }
 
@@ -63,18 +66,25 @@ public class CuentaBancaria {
     }
     
     public void Deposito(Double cantidad){
+        if(cantidad <= 0)
+            return;
         this.saldo += cantidad;
     }
 
-    public double Retiro(Double retiro){
-        if(saldo < retiro){
+    public Boolean Retiro(Double retiro){
+        if(retiro <= 0){
+            System.out.println("Monto no valido");
+            return false;
+        }
+        if(saldo <= retiro){
             System.out.println("No posee el monto solicitado en su cuenta");
+            return false;
         }
         else{
             this.saldo -= retiro;   
         }
         System.out.print("\n");
-        return retiro;
+        return true;
     }
 
     public void Transferencia(){
@@ -98,7 +108,12 @@ public class CuentaBancaria {
         System.out.print("Digite la cantidad que quiere transferir: ");
         double retiro = scan.nextDouble();
         System.out.print("\n");
-        this.Retiro(retiro);
+        Boolean cantidad = this.Retiro(retiro);
+
+        if(cantidad == false){
+            return;
+        }
+
         receptor.Deposito(retiro);
     }    
 }

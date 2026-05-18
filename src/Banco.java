@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Banco {
     
-    public ArrayList<CuentaBancaria> cuentas;
+    private ArrayList<CuentaBancaria> cuentas;
     Scanner scan;
 
     public Banco(){
@@ -65,10 +65,11 @@ public class Banco {
     }
 
     private void ListarCuentas(){
+        int contador = 1;
         for(CuentaBancaria cuenta : cuentas){
 
             System.out.print("\n");
-            System.out.println("------------------------------------------------------------(\"------------------------------------------------------------");
+            System.out.println("-------------------------------------Cuenta"+contador+"--------------------------------------");
             System.out.print("\n");
 
             System.out.println("------------------------------------------------------------");
@@ -90,9 +91,8 @@ public class Banco {
             System.out.println("Numero de cuenta: " +cuenta.GetNumerodeCuenta());
             System.out.println("------------------------------------------------------------");
             System.out.print("\n");
-            System.out.print("----------------------------------------------------------------------------------------------------------------------");
-            System.out.print("\n");
-
+            
+            contador++;
         }
     }
     
